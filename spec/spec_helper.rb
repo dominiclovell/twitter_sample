@@ -16,6 +16,11 @@ Spork.prefork do
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
   Rspec.configure do |config|
+    
+    def test_sign_in(user)
+       controller.current_user = user
+    end
+    
     # == Mock Framework
     #
     # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

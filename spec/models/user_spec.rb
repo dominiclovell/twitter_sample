@@ -66,7 +66,7 @@ describe "password validations" do
      
      it "should require a password" do
        User.new(@attr.merge(:password => "", :password_confirmation => "")).
-        should_not be valid
+        should_not be_valid
      end
      
      it " should require a mathcing password confirmation" do
@@ -77,7 +77,7 @@ describe "password validations" do
      it "should reject short passwords" do
         short = "a" * 5
         hash = @attr.merge(:password => short, :password_confirmation => short)
-        User.new(hash).should_not be valid          
+        User.new(hash).should_not be_valid          
      end
      
      it "should reject long passwords" do
